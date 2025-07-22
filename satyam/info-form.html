@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .thank-you {
+      text-align: center;
+      font-size: 18px;
+      color: green;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Wedding Information</h2>
+  <form id="entryForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="village">Village:</label>
+      <input type="text" id="village" name="village" required>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+    </div>
+
+    <div class="form-group">
+      <label for="items">Items No:</label>
+      <input type="text" id="items" name="items" min="1" required>
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content No:</label>
+      <input type="text" id="content" name="content" required>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="thank-you" id="thankYouMessage">Thank you! Your response has been submitted.</div>
+</div>
+
+<script>
+  const form = document.getElementById("entryForm");
+  const thankYouMessage = document.getElementById("thankYouMessage");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form from actually submitting
+    form.style.display = "none"; // Hide the form
+    thankYouMessage.style.display = "block"; // Show thank you message
+  });
+  
+</script>
+
+
+</body>
+</html>
